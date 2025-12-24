@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding and Editing element </title>
+    <style>
+        body {
+            background-color: black;
+            color: wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+
+    <script>
+        let addLanguage = (langName) => {
+            let newLi = document.createElement('li')
+            newLi.innerHTML = `${langName}`
+            let ul = document.querySelector(".language")
+            ul.appendChild(newLi)
+        }
+
+        addLanguage('ruby');
+        addLanguage('typescript');
+
+        let addOptiLang = (langName) => {
+            let newLi = document.createElement('li')
+            newLi.appendChild(document.createTextNode(langName))
+            document.querySelector('.language').appendChild(newLi)
+        } //this approch is said to be more optimized
+
+        addOptiLang('python')
+        addOptiLang('rust')
+
+        // Now editing the values
+
+        let editLi = document.querySelector('li:nth-child(4)')
+        let newLi = document.createElement('li')
+        newLi.textContent = 'mojo'
+        editLi.replaceWith(newLi)
+
+        let editLi2 = document.querySelector('li:first-child')
+        editLi2.outerHTML = '<li>go by google</li>'
+
+        // removing element
+        let lastLang=document.querySelector('li:last-child')
+        lastLang.remove() // this will remove rust from display
+
+
+
+    </script>
+</body>
+
+</html>

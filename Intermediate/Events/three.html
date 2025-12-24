@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout and setInterval</title>
+    <style>
+        body {
+            background-color: black;
+            color: wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Chai and javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        let interval = () => {
+            console.log('Aman', Date.now())
+        }
+
+        let intervalId = setInterval(interval, 2000)
+        document.querySelector('#start').addEventListener('click', () => {
+            setInterval(interval, 2000)
+        })
+        document.querySelector('#stop').addEventListener('click', () => {
+            clearInterval(intervalId)
+        })
+
+
+    </script>
+</body>
+
+</html>

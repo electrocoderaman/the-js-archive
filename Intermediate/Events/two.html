@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout and setInterval</title>
+    <style>
+        body {
+            background-color: black;
+            color: wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>About setimeOut and setInterval</h1>
+    <button id="btn">Stop</button>
+
+    <script>
+        let timeoutFn = () => {
+            console.log('Aman')
+            document.querySelector('h1').innerHTML = 'here we changed the timeout function'
+        }
+        let changeHeading = setTimeout(timeoutFn, 10000);
+
+        document.querySelector('#btn').addEventListener('click', () => {
+            clearTimeout(changeHeading)
+            console.log('STOPPED')
+        }
+        )
+
+    </script>
+</body>
+
+</html>
