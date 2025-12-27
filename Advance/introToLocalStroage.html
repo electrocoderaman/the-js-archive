@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local stroage</title>
+    <style>
+        body {
+            background-color: black;
+            color: wheat;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        Im a container
+
+        <form action="">
+            <input type="text" id="userName">
+            <input type="submit" id="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        const form = document.querySelector("form")
+        const formValue = document.querySelector("#userName")
+
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+            const value = formValue.value
+            localStorage.setItem("name", value)
+        });
+
+        const v = localStorage.getItem("name")
+
+        if (v) {
+            formValue.value = v;
+        }
+
+        const user = {
+            name: "Aman",
+            age: 20,
+            isloggedin: true
+        }
+
+        let arr = [1, 5, 84, "jhon"]
+        localStorage.setItem("array", JSON.stringify(arr))
+
+        localStorage.setItem("user", JSON.stringify(user))
+
+        let details = JSON.parse(localStorage.getItem("user"))
+
+        console.log(details)
+        console.log(localStorage)
+        console.log(JSON.parse(localStorage.getItem("array")))
+    </script>
+</body>
+
+</html>
